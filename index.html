@@ -3,119 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clocktower Academy | Blood on the Clocktower Lernen (Aquarell-Edition)</title>
+    <title>Clocktower Academy | Blood on the Clocktower Lernen (Aquarell-Stil)</title>
     <style>
         :root {
-            /* Neue Farbpalette: Cremefarben und Aquarell-Lila */
+            /* Farbpalette: Cremefarben und Aquarell-Lila */
             --bg-page: #fdfcf5; /* Warmes Cremeweiß */
-            --bg-card: #ffffff; /* Reines Weiß für Abhebung */
+            --bg-card: #ffffff; /* Reines Weiß */
             --primary-purple: #7b2cbf; /* Tiefes Aquarell-Lila */
-            --light-purple: #e0aaff; /* Sehr helles Lila für Hintergründe */
+            --mid-purple: #9d4edd; /* Mittleres Lila */
+            --light-purple: #e0aaff; /* Sehr helles Lila */
             --text-main: #2a0944; /* Sehr dunkles Lila für Text */
             --text-muted: #5a3e75; /* Abgetöntes Lila */
-            --border-style: 2px dashed var(--light-purple); /* Weichere Linien */
+            
+            /* Stil-Elemente */
+            --border-style: 2px dashed var(--mid-purple);
+            --shadow-soft: 0 5px 20px rgba(123, 44, 191, 0.05);
+            --shadow-medium: 0 8px 25px rgba(123, 44, 191, 0.1);
         }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-page);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 940px;
             margin: 0 auto;
             padding: 20px;
         }
 
+        /* --- HEADER --- */
         header {
             text-align: center;
-            padding: 80px 20px;
-            /* Subtiler Aquarell-Hintergrundeffekt (Platzhalter) */
-            background-color: var(--light-purple);
-            background-image: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(224,170,255,0.4) 100%);
-            border-bottom: 5px solid var(--primary-purple);
-            border-radius: 0 0 50px 50px; /* Abgerundeter, weicherer Abschluss */
-            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.1);
+            padding: 100px 20px;
+            /* Subtiler Aquarell-Verlauf */
+            background: radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, rgba(224,170,255,0.3) 100%);
+            border-bottom: 6px solid var(--primary-purple);
+            border-radius: 0 0 60px 60px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
         }
 
-        h1 {
+        header h1 {
             font-family: 'Georgia', serif;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             color: var(--primary-purple);
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(123, 44, 191, 0.1);
         }
 
-        .tagline {
+        header .tagline {
             font-style: italic;
             color: var(--text-muted);
-            font-size: 1.3rem;
-            margin-top: 10px;
+            font-size: 1.4rem;
+            margin-top: 15px;
         }
 
+        /* --- ALLGEMEINE SEKTIONEN --- */
         section {
-            margin: 40px 0;
-            padding: 30px;
+            margin: 50px 0;
+            padding: 40px;
             background-color: var(--bg-card);
-            border-radius: 15px;
-            border: 1px solid rgba(123, 44, 191, 0.1);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(123, 44, 191, 0.08);
+            box-shadow: var(--shadow-soft);
             position: relative;
             overflow: hidden;
         }
 
-        /* Aquarell-Akzent an der Seite */
+        /* Aquarell-Akzent-Leiste links */
         section::before {
             content: '';
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
-            width: 8px;
-            background-color: var(--primary-purple);
-            border-radius: 15px 0 0 15px;
+            width: 10px;
+            background: linear-gradient(to bottom, var(--primary-purple), var(--light-purple));
+            border-radius: 20px 0 0 20px;
         }
 
         h2 {
             color: var(--primary-purple);
             font-family: 'Georgia', serif;
+            font-size: 2.2rem;
             border-bottom: var(--border-style);
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        h2 span.icon {
+            font-size: 1.2em;
         }
 
+        /* --- BILDER --- */
+        .section-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover; /* Schneidet das Bild passend zu */
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px solid var(--light-purple);
+        }
+
+        /* --- GRID & KARTEN --- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .feature-card {
             background: #fff;
-            padding: 25px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 15px;
             border: 1px solid rgba(123, 44, 191, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
         .feature-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(123, 44, 191, 0.1);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--mid-purple);
+        }
+
+        .feature-card img.card-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background-color: var(--light-purple);
+            padding: 10px;
         }
 
         .feature-card h3 {
             color: var(--primary-purple);
             margin-top: 0;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
         }
 
+        /* --- LISTEN --- */
         .step-list {
             list-style: none;
             padding: 0;
@@ -124,10 +162,12 @@
 
         .step-list li {
             counter-increment: step-counter;
-            margin-bottom: 20px;
-            padding-left: 60px;
+            margin-bottom: 25px;
+            padding-left: 70px;
             position: relative;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
         }
 
         .step-list li::before {
@@ -136,53 +176,69 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--light-purple);
-            color: var(--primary-purple);
-            width: 40px;
-            height: 40px;
+            background: var(--primary-purple);
+            color: white;
+            width: 45px;
+            height: 45px;
             text-align: center;
             border-radius: 50%;
             font-weight: bold;
-            font-size: 1.2rem;
-            line-height: 40px;
-            border: 2px solid var(--primary-purple);
+            font-size: 1.3rem;
+            line-height: 45px;
+            box-shadow: 0 4px 8px rgba(123, 44, 191, 0.2);
         }
 
+        /* --- BUTTONS & CTA --- */
         .cta-container {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: rgba(224, 170, 255, 0.2);
+            border-radius: 15px;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-purple);
+            background: linear-gradient(45deg, var(--primary-purple), var(--mid-purple));
             color: white;
-            padding: 18px 35px;
+            padding: 20px 40px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 50px; /* Weicher, runder Button */
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(123, 44, 191, 0.3);
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: #9d4edd;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(123, 44, 191, 0.4);
+            box-shadow: 0 8px 25px rgba(123, 44, 191, 0.5);
+            transform: scale(1.03);
         }
 
+        /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 50px;
-            font-size: 0.95rem;
+            padding: 60px 20px;
+            font-size: 1rem;
             color: var(--text-muted);
             border-top: var(--border-style);
-            margin-top: 30px;
+            margin-top: 50px;
+            background-color: rgba(224, 170, 255, 0.1);
         }
 
         strong {
             color: var(--primary-purple);
+        }
+
+        /* --- RESPONSIVE OPTIMIERUNG --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            section { padding: 25px; }
+            h2 { font-size: 1.8rem; }
+            .step-list li { padding-left: 60px; font-size: 1rem;}
+            .step-list li::before { width: 40px; height: 40px; line-height: 40px;}
         }
     </style>
 </head>
@@ -190,55 +246,37 @@
 
 <header>
     <h1>Clocktower Academy</h1>
-    <p class="tagline">Ein sanfter Einstieg in das Chaos von Blood on the Clocktower</p>
+    <p class="tagline">Dein sicherer, lila Hafen im kreativen Chaos von Blood on the Clocktower</p>
 </header>
 
 <div class="container">
-    <section>
-        <h2>Willkommen, Neuling</h2>
-        <p>Die Clocktower-Academy ist ein Ort, an dem Neulinge in einer einladenden Umgebung das Spiel in ihrem eigenen Tempo erlernen können. Entdecke Strategien und Feinheiten, ohne dich überwältigt zu fühlen – umgeben von Gleichgesinnten und erfahrenen Spielern.</p>
+    <section id="welcome">
+        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Offenes altes Buch im Aquarell-Stil" class="section-image">
+        
+        <h2><span class="icon">🏰</span>Willkommen, Lehrling</h2>
+        <p>Die <strong>Clocktower-Academy</strong> ist ein Ort, an dem Neulinge in einer einladenden und künstlerischen Umgebung das Spiel in ihrem eigenen Tempo erlernen können. Entdecke Strategien und Feinheiten, ohne dich überwältigt zu fühlen – umgeben von Gleichgesinnten und erfahrenen Spielern.</p>
     </section>
 
-    <section>
-        <h2>Unser Angebot</h2>
+    <section id="offers">
+        <h2><span class="icon">🎓</span>Unser Lehrplan</h2>
         <div class="grid">
             <div class="feature-card">
+                <img src="https://img.icons8.com/watercolor/100/castle.png" alt="castle" class="card-icon"/>
                 <h3>Anfängerrunden</h3>
-                <p>Speziell für Einsteiger konzipierte Runden, meist mit dem Skript <strong>Trouble Brewing</strong>.</p>
+                <p>Speziell konzipierte Runden, ideal für den Einstieg mit <strong>Trouble Brewing</strong>.</p>
             </div>
             <div class="feature-card">
+                <img src="https://img.icons8.com/watercolor/100/quill-with-ink.png" alt="quill-with-ink" class="card-icon"/>
                 <h3>Storyteller-Schule</h3>
-                <p>Lerne die Kunst der Spielleitung von unseren erfahrenen Storytellern.</p>
+                <p>Lerne die Kunst der Spielleitung und wie du eine Gruppe sicher führst.</p>
             </div>
             <div class="feature-card">
+                <img src="https://img.icons8.com/watercolor/100/book.png" alt="book" class="card-icon"/>
                 <h3>Lern-Ressourcen</h3>
-                <p>Zugang zu deutschen Glossaren, Charakterübersichten und Hilfestellungen.</p>
+                <p>Zugang zu deutschen Glossaren, Charakterübersichten und Tutorials.</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>Der Weg in die Academy</h2>
-        <ul class="step-list">
-            <li><strong>Discord beitreten:</strong> Klicke auf den Button unten, um unserer Community beizutreten.</li>
-            <li><strong>Wochenplan prüfen:</strong> Im Kanal #wochenplan findest du alle anstehenden Termine.</li>
-            <li><strong>Anmelden:</strong> Reagiere auf die Nachricht des Termins, an dem du teilnehmen möchtest.</li>
-            <li><strong>Spielen:</strong> Sei einfach 15 Minuten vor Start im Voice-Chat bereit.</li>
-        </ul>
-        <div class="cta-container">
-            <a href="#" class="btn">Jetzt dem Discord beitreten</a>
-        </div>
-    </section>
-
-    <section>
-        <h2>Wichtige Infos</h2>
-        <p>Unser Angebot ist <strong>vollständig kostenlos</strong>. Die wichtigste Regel in der Academy lautet: Wenn irgendetwas unklar ist, zögere nicht, deine Frage zu stellen! Wir sind da, um gemeinsam zu lernen.</p>
-    </section>
-</div>
-
-<footer>
-    &copy; 2026 Clocktower Academy | Ein Community-Projekt für Blood on the Clocktower.
-</footer>
-
-</body>
-</html>
+    <section id="join">
+        <h2><span class="icon">💜
