@@ -6,160 +6,175 @@
 <title>Clocktower Academy</title>
 
 <style>
+:root {
+  --purple-main: #5a2a82;
+  --purple-glow: #7b3fb6;
+  --black-deep: #0a0a0f;
+  --white-soft: #f5f5f7;
+  --gray-text: #a1a1aa;
+}
+
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #111;
-    background: #fff;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--black-deep);
+  color: white;
 }
 
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  background: rgba(10,10,15,0.6);
 }
 
-/* Sections */
-.section {
-    padding: 120px 20px;
-    text-align: center;
+nav a {
+  color: var(--gray-text);
+  margin-left: 20px;
+  text-decoration: none;
 }
 
-/* Hero */
+nav a:hover {
+  color: white;
+}
+
+/* HERO */
 .hero {
-    background: linear-gradient(to bottom, #f5f5f7, #ffffff);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #1a0d2e, #000);
 }
 
 h1 {
-    font-size: 64px;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-}
-
-h2 {
-    font-size: 42px;
-    margin-bottom: 20px;
+  font-size: 80px;
+  margin: 0;
+  background: linear-gradient(90deg, white, #bbb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {
-    font-size: 20px;
-    color: #555;
-    max-width: 700px;
-    margin: auto;
+  color: var(--gray-text);
+  font-size: 22px;
+  margin-top: 20px;
 }
 
-/* Button */
+/* BUTTON */
 .button {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 14px 32px;
-    border-radius: 30px;
-    background: black;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
+  margin-top: 40px;
+  padding: 16px 36px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, var(--purple-main), var(--purple-glow));
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(123,63,182,0.5);
+  transition: 0.3s;
 }
 
 .button:hover {
-    background: #333;
+  transform: scale(1.05);
 }
 
-/* Features */
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 60px;
-    flex-wrap: wrap;
+/* SECTIONS */
+.section {
+  padding: 140px 20px;
+  text-align: center;
 }
 
-.feature {
-    max-width: 260px;
+h2 {
+  font-size: 48px;
 }
 
-/* Dark Section */
-.dark {
-    background: #000;
-    color: #fff;
+/* IMAGE BLOCK */
+.image-block {
+  max-width: 1000px;
+  margin: 60px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(123,63,182,0.3);
 }
 
-/* Animation */
-.fade {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+.image-block img {
+  width: 100%;
 }
 
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
+/* GRID */
+.grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 250px;
+  backdrop-filter: blur(10px);
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+  <div><b>Clocktower</b></div>
+  <div>
+    <a href="crashkurs.html">Crashkurs</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="glossar.html">Glossar</a>
+    <a href="https://discord.com/invite/QHwTBh6her">Discord</a>
+  </div>
+</nav>
+
 <!-- HERO -->
-<div class="section hero fade">
-    <h1>Clocktower Academy</h1>
-    <p>Lerne. Spiele. Werde besser.</p>
-    <a href="#join" class="button">Jetzt starten</a>
+<div class="hero">
+  <h1>Clocktower Academy</h1>
+  <p>Werde besser in Blood on the Clocktower</p>
+  <a href="crashkurs.html" class="button">Jetzt starten</a>
 </div>
 
-<!-- INTRO -->
-<div class="section fade">
-    <h2>Eine neue Art zu lernen</h2>
-    <p>Interaktiv. Gemeinschaftlich. Anders.</p>
+<!-- SECTION -->
+<div class="section">
+  <h2>Mehr als ein Spiel</h2>
+  <p>Strategie. Psychologie. Täuschung.</p>
+
+  <div class="image-block">
+    <img src="images/botc1.jpg">
+  </div>
 </div>
 
 <!-- FEATURES -->
-<div class="section fade">
-    <div class="features">
-        <div class="feature">
-            <h3>Strategie</h3>
-            <p>Entwickle dein Denken auf das nächste Level.</p>
-        </div>
-        <div class="feature">
-            <h3>Community</h3>
-            <p>Lerne gemeinsam mit anderen Spielern.</p>
-        </div>
-        <div class="feature">
-            <h3>System</h3>
-            <p>Klare Strukturen für echten Fortschritt.</p>
-        </div>
+<div class="section">
+  <div class="grid">
+    <div class="card">
+      <h3>Strategie</h3>
+      <p>Triff bessere Entscheidungen.</p>
     </div>
-</div>
-
-<!-- IMAGE STYLE SECTION -->
-<div class="section dark fade">
-    <h2>Mehr als nur ein Spiel</h2>
-    <p>Eine Erfahrung, die dich besser macht.</p>
+    <div class="card">
+      <h3>Bluffing</h3>
+      <p>Überzeuge andere Spieler.</p>
+    </div>
+    <div class="card">
+      <h3>Deduktion</h3>
+      <p>Finde die Wahrheit.</p>
+    </div>
+  </div>
 </div>
 
 <!-- CTA -->
-<div id="join" class="section fade">
-    <h2>Werde Teil der Academy</h2>
-    <a href="#" class="button">Beitreten</a>
+<div class="section">
+  <h2>Werde Teil der Community</h2>
+  <a href="https://linktr.ee/debotcom" class="button">Alle Links</a>
 </div>
-
-<script>
-const faders = document.querySelectorAll('.fade');
-
-const appearOptions = {
-    threshold: 0.2
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-    });
-}, appearOptions);
-
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-});
-</script>
 
 </body>
 </html>
