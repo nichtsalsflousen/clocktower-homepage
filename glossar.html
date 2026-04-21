@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Glossar | Clocktower-Academy</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --primary-purple: #675791;
@@ -18,36 +16,42 @@
 
         body {
             margin: 0;
-            padding: 0;
             font-family: var(--copy-font);
             background-color: var(--bg-white);
             color: #333;
+            line-height: 1.6;
         }
 
         header {
             background-color: var(--bg-black);
             padding: 20px 0;
-            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: center;
+            gap: 30px;
             flex-wrap: wrap;
         }
 
         header a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
 
-        section {
-            max-width: 1000px;
+        header a:hover { color: var(--primary-purple); }
+
+        .content-section {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
         }
@@ -57,87 +61,73 @@
             font-size: 64px;
             color: var(--primary-purple);
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .intro-text {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
             font-size: 18px;
-            margin-bottom: 40px;
-            color: #555;
         }
 
+        /* Suchfeld-Container */
         .search-container {
-            margin-bottom: 30px;
             text-align: center;
+            margin-bottom: 40px;
         }
 
         #glossarySearch {
             width: 100%;
-            max-width: 500px;
-            padding: 12px 20px;
-            font-size: 16px;
+            max-width: 600px;
+            padding: 15px 25px;
+            font-size: 18px;
             border: 2px solid var(--primary-purple);
-            border-radius: 25px;
+            border-radius: 30px;
             outline: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Tabelle Styling */
+        .table-responsive {
+            overflow-x: auto;
         }
 
         .glossary-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            background: white;
+            min-width: 800px;
+            margin-top: 10px;
         }
 
         .glossary-table th {
             background-color: var(--primary-purple);
             color: white;
-            text-align: left;
             padding: 15px;
-            font-size: 18px;
+            text-align: left;
+            /* Verhindert das Überlagern des ersten Inhalts */
+            position: relative; 
+            z-index: 10;
         }
 
         .glossary-table td {
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
+            padding: 20px 15px;
+            border-bottom: 1px solid #eee;
             vertical-align: top;
+            font-size: 15px;
         }
 
-        .glossary-table tr:hover {
-            background-color: #f1f0f5;
-        }
+        .glossary-table tr:hover { background-color: #f9f8ff; }
 
-        .term {
-            font-weight: bold;
-            color: var(--primary-purple);
-            width: 25%;
-        }
-
-        .explanation {
-            line-height: 1.6;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background-color: #eee;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        footer {
-            background-color: var(--bg-black);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
+        .col-term { width: 15%; font-weight: bold; color: var(--primary-purple); }
+        .col-explanation { width: 25%; }
+        .col-example { width: 25%; font-style: italic; color: #555; }
+        .col-details { width: 35%; font-size: 14px; border-left: 1px solid #f0f0f0; }
 
         @media (max-width: 800px) {
-            h1 { font-size: 44px; }
-            .term { width: 35%; }
+            h1 { font-size: 40px; }
+            .glossary-table th, .glossary-table td { padding: 10px; font-size: 13px; }
         }
     </style>
 </head>
@@ -145,89 +135,365 @@
 
 <header>
     <nav class="nav-container">
-        <a href="index.html" style="font-weight: bold; color: var(--primary-purple);">Clocktower-Academy</a>
-        
         <a href="index.html">Startseite</a>
-        <a href="crashkurs.html">Crashkurs</a>
+        <a href="storyteller-innen-crashkurs.html">Crashkurs</a>
         <a href="ueber-uns.html">Über uns</a>
-        <a href="glossar.html">Glossar</a>
+        <a href="glossar.html" style="color: var(--primary-purple); font-weight: bold;">Glossar</a>
     </nav>
 </header>
 
-<section>
-    <div style="text-align: center;">
-        <span class="status-badge">🏗️ In Arbeit - Wird laufend erweitert</span>
-    </div>
+<section class="content-section">
     <h1>Glossar</h1>
-    <p class="intro-text">
-        Hier findest du alle gängigen Begriffe, die während einer Runde <strong>Blood on the Clocktower</strong> fallen können. 
-        Klar erklärt mit Beispielen für einen besseren Spieleinstieg.
-    </p>
+    <p class="intro-text">Das vollständige Nachschlagewerk für alle Begriffe rund um Blood on the Clocktower.</p>
 
     <div class="search-container">
         <input type="text" id="glossarySearch" onkeyup="searchGlossary()" placeholder="Nach Begriffen suchen...">
     </div>
 
-    <table class="glossary-table" id="glossaryTable">
-        <thead>
-            <tr>
-                <th>Begriff</th>
-                <th>Erläuterung & Beispiel</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="term">Storyteller</td>
-                <td class="explanation">Der Spielleiter. Er moderiert das Spiel, verteilt die Rollen und trifft Entscheidungen bei unklaren Regelsituationen.</td>
-            </tr>
-            <tr>
-                <td class="term">Grimoire</td>
-                <td class="explanation">Das "Buch" des Storytellers, in dem alle Rollen, Zustände und Spielverläufe festgehalten werden. Für Spieler streng geheim!</td>
-            </tr>
-            <tr>
-                <td class="term">Nomination</td>
-                <td class="explanation">Der formale Prozess am Tag, bei dem ein Spieler vorgeschlagen wird, um hingerichtet zu werden.</td>
-            </tr>
-            <tr>
-                <td class="term">Drunk / Vergiftet</td>
-                <td class="explanation">Ein Zustand, in dem die Fähigkeit eines Spielers nicht funktioniert, der Storyteller ihm aber (falsche) Informationen geben kann.</td>
-            </tr>
-            <tr>
-                <td class="term">Top 4 / Top 3</td>
-                <td class="explanation">Bezieht sich auf die Anzahl der verbleibenden lebenden Spieler – oft die entscheidende Phase des Spiels.</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="glossary-table" id="glossaryTable">
+            <thead>
+                <tr>
+                    <th class="col-term">Fachbegriff</th>
+                    <th class="col-explanation">Erklärung</th>
+                    <th class="col-example">Beispiele</th>
+                    <th class="col-details">Erläuterungen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-term">3 für 3 / 3 for 3</td>
+                    <td class="col-explanation">Austausch von jeweils drei Rollen, von denen eine die eigene sein soll.</td>
+                    <td class="col-example">„Machen wir ein ‚3 für 3‘?“ - „Gerne. Ich bin Chef, Empath oder Monk.“</td>
+                    <td class="col-details">Ermöglicht das Teilen von Informationen, ohne sich festzulegen. (Siehe Soft Claim)</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Alignment / Gesinnung</td>
+                    <td class="col-explanation">Zugehörigkeit zu einem Team: Gut (Blau) oder Böse (Rot).</td>
+                    <td class="col-example">„Lea und Martin haben ein anderes Alignment.“</td>
+                    <td class="col-details">Basierend auf Character Type. Townsfolk/Outsider sind gut, Minions/Demons böse. In fortgeschrittenen Skripten kann das variieren.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Alignment-Wechsel</td>
+                    <td class="col-explanation">Wechsel der Teamzugehörigkeit im laufenden Spiel.</td>
+                    <td class="col-example">„Der Savant hat gelernt, dass es einen Alignment Change gab.“</td>
+                    <td class="col-details">Nur in fortgeschrittenen Skripten. Wird durch den ST mitgeteilt. Rollenwechsel ungleich Alignment-Wechsel.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">auf dem Block / marked for execution</td>
+                    <td class="col-explanation">Mit den aktuell meisten Stimmen für eine Exekution ausgewählt worden sein.</td>
+                    <td class="col-example">„8 Stimmen, das ist genug. Flo ist auf dem Block.“</td>
+                    <td class="col-details">Es kann nur eine Person auf dem Block sein. Bei Gleichstand (Tie) oder mehr Stimmen für jemand anderen wechselt der Status.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Barber Swap / Barber-Tausch</td>
+                    <td class="col-explanation">Vom Demon durchgeführter Rollenwechsel zweier Personen nach dem Tod eines Barbers.</td>
+                    <td class="col-example">„Ich war Flowergirl und bin jetzt Klutz.“</td>
+                    <td class="col-details">Kann die Position des Demons verändern. Das Alignment bleibt gleich. Eine neue Instanz der Rolle entsteht.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">cere mad</td>
+                    <td class="col-explanation">Aktiv versuchend, Mitspielende von einer vom Cerenovus vorgegebenen guten Rolle zu überzeugen.</td>
+                    <td class="col-example">„Ich war gestern cere mad, ich bin nicht das Flowergirl!“</td>
+                    <td class="col-details">Bei Missachtung der Madness kann der ST das Ziel exekutieren.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Character Type / Rollentyp</td>
+                    <td class="col-explanation">Kategorie einer Rolle (Townsfolk, Outsider, Minion, Demon, Traveller, Fabled).</td>
+                    <td class="col-example">„Wie viele Rollen von jedem Character Type sind im Spiel?“</td>
+                    <td class="col-details">Bestimmt das anfängliche Alignment. Traveller und Fabled sind seltener.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Claim</td>
+                    <td class="col-explanation">Behauptung, eine Rolle zu sein oder eine bestimmte Info zu haben.</td>
+                    <td class="col-example">„Hat jemand einen Chef-Claim?“</td>
+                    <td class="col-details">Varianten: Double Claim, Hard Claim, Soft Claim.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Confirmation</td>
+                    <td class="col-explanation">Bestätigung, dass eine Information wahr ist.</td>
+                    <td class="col-example">„Ich confirme Flo, können wir ihn bitte nicht hinrichten?“</td>
+                    <td class="col-details">Überlebenswichtig für das gute Team. Varianten: Hard und Soft Confirmation.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">DA [DiAy]</td>
+                    <td class="col-explanation">Abkürzung für das Minion Devil’s Advocate.</td>
+                    <td class="col-example">„Du warst gestern DA-protected.“</td>
+                    <td class="col-details">Minion, das Spieler vor Exekution schützt.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Double Claim</td>
+                    <td class="col-explanation">Behauptung von zwei Personen, die gleiche Rolle zu sein.</td>
+                    <td class="col-example">„Flo und Lea behaupten beide, Chef zu sein.“</td>
+                    <td class="col-details">Kann versehentlich oder bewusst zur Verwirrung des anderen Teams genutzt werden.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">droisoned</td>
+                    <td class="col-explanation">Kombination aus drunk und poisoned.</td>
+                    <td class="col-example">„Ich könnte auch droisoned sein.“</td>
+                    <td class="col-details">Zustand, in dem die Fähigkeit nicht funktioniert. Drunkness = gute Quelle, Poisoning = böse Quelle.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">drunk</td>
+                    <td class="col-explanation">Zustand, der die Fähigkeit nicht mehr funktionieren lässt (ohne Wissen der Person).</td>
+                    <td class="col-example">„Meine Infos ergeben keinen Sinn, ich war sicher drunk!“</td>
+                    <td class="col-details">Der ST gibt oft falsche Informationen. Mechanische Effekte (z.B. Slayer-Schuss) schlagen fehl.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Evil Team</td>
+                    <td class="col-explanation">Das böse Team.</td>
+                    <td class="col-example">„Hat gerade das gesamte Evil Team gevotet?“</td>
+                    <td class="col-details">Besteht aus Demon, Minions und ggf. weiteren bösen Personen.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Exekution</td>
+                    <td class="col-explanation">Hinrichtung am Tag durch Abstimmung. Beendet den Tag sofort.</td>
+                    <td class="col-example">„Sabine wird exekutiert, wir gehen in die Nacht.“</td>
+                    <td class="col-details">Wichtigster Weg für Gut, um den Demon zu töten.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Fähigkeit</td>
+                    <td class="col-explanation">Besondere Macht/Effekt jeder Rolle.</td>
+                    <td class="col-example">„Die Fähigkeit des Empathen...“</td>
+                    <td class="col-details">Man unterscheidet aktiv (z.B. Monk) und passiv (z.B. Soldier).</td>
+                </tr>
+                <tr>
+                    <td class="col-term">First Night Character</td>
+                    <td class="col-explanation">Rolle, die nur in der ersten Nacht aktiv ist.</td>
+                    <td class="col-example">„Ich bin eine First-Night-Rolle.“</td>
+                    <td class="col-details">Erhalten danach keine weiteren Informationen mehr.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Grandchild / Enkelkind</td>
+                    <td class="col-explanation">Die Person, die von einer Großmutter gesehen wird.</td>
+                    <td class="col-example">„Flo war mein Grandchild!“</td>
+                    <td class="col-details">Wichtige Bestätigungskette zwischen zwei Spielern.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Hard Claim</td>
+                    <td class="col-explanation">Behauptung, eine spezifische Rolle zu sein.</td>
+                    <td class="col-example">„Ich bin Cannibal.“</td>
+                    <td class="col-details">Kann wahr oder gelogen sein. Legt den Spieler fest.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Hard Confirmation</td>
+                    <td class="col-explanation">100% sichere Bestätigung einer Information.</td>
+                    <td class="col-example">„Flo ist hard-confirmed durch die Virgin.“</td>
+                    <td class="col-details">Oft spielentscheidend für das gute Team.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">harpy mad</td>
+                    <td class="col-explanation">Aktiv versuchend zu überzeugen, dass eine bestimmte Person böse ist.</td>
+                    <td class="col-example">„Josh war ganz klar harpy mad!“</td>
+                    <td class="col-details">Bei Missachtung kann die Harpy eines oder beide Opfer töten.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Instanz</td>
+                    <td class="col-explanation">„Lebenszyklus“ einer Rolle.</td>
+                    <td class="col-example">„Der Assassin ist in neuer Instanz im Spiel.“</td>
+                    <td class="col-details">Bei Wiederbelebung oder Rollenwechsel werden verbrauchte Fähigkeiten oft zurückgesetzt.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Jump / Sprung</td>
+                    <td class="col-explanation">Sprung eines Fang Gus auf einen Outsider.</td>
+                    <td class="col-example">„Wir hatten heute Nacht einen Fang-Gu-Jump.“</td>
+                    <td class="col-details">Outsider wird zum neuen Dämon (Alignment-Wechsel zu Böse).</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Kill</td>
+                    <td class="col-explanation">Das Töten einer Person (meist nachts durch den Demon).</td>
+                    <td class="col-example">„Kein Kill? Vielleicht haben wir einen Soldier.“</td>
+                    <td class="col-details">Unterscheidung der Kill-Ursachen ist wichtig für die Deduktion.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">mad / besessen</td>
+                    <td class="col-explanation">Aktiv versuchend, die Mitspielenden von einer (vorgegebenen) Wahrheit zu überzeugen.</td>
+                    <td class="col-example">„Max ist cere mad, das ist doch klar!“</td>
+                    <td class="col-details">Wird mechanisch durch Rollen wie Cerenovus, Harpyie oder Pixie erzwungen.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Mayor Bounce</td>
+                    <td class="col-explanation">Abprallen eines Nacht-Kills vom Mayor auf eine andere Person.</td>
+                    <td class="col-example">„Der Chef ist tot – war das ein Mayor Bounce?“</td>
+                    <td class="col-details">Ein Indiz für die Anwesenheit eines Mayors.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">outen / outed</td>
+                    <td class="col-explanation">Preisgeben einer vorher geheimen Information.</td>
+                    <td class="col-example">„Ich oute jetzt mal meine Infos.“</td>
+                    <td class="col-details">Kann freiwillig oder unfreiwillig passieren.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">philo drunk</td>
+                    <td class="col-explanation">Drunkness-Zustand, verursacht durch den Philosopher.</td>
+                    <td class="col-example">„Der echte Dreamer ist jetzt philo drunk.“</td>
+                    <td class="col-details">Passiert, wenn der Philosopher eine bereits vorhandene Rolle wählt.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Ping</td>
+                    <td class="col-explanation">Das Anschlagen einer Fähigkeit bei einer Person.</td>
+                    <td class="col-example">„Ich habe einen bösen Ping auf Flo.“</td>
+                    <td class="col-details">Beispiele: Fortune Teller "Ja", Investigator-Minion-Ping etc.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">pixie mad</td>
+                    <td class="col-explanation">Aktiv versuchend, die Mitspielenden davon zu überzeugen, die gelernte Rolle zu sein.</td>
+                    <td class="col-example">„Ich war pixie mad und habe jetzt die Fähigkeit!“</td>
+                    <td class="col-details">Belohnung bei Einhaltung: Die Pixie erhält die Fähigkeit der Rolle.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Po Charge</td>
+                    <td class="col-explanation">Entscheidung des Pos, nachts nicht zu töten, um später 3 Kills zu erhalten.</td>
+                    <td class="col-example">„Vielleicht hatten wir einen Po Charge?“</td>
+                    <td class="col-details">Wichtiges Warnsignal für das Dorf.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Proc / proccen</td>
+                    <td class="col-explanation">Auslösen einer einmaligen Fähigkeit durch einen Trigger.</td>
+                    <td class="col-example">„Die Virgin ist nicht geprocct.“</td>
+                    <td class="col-details">Findet oft Erwähnung, wenn Effekte (un)erwartet eintreten.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Red Herring</td>
+                    <td class="col-explanation">Falsche Fährte für den Fortune Teller (Gute Person registriert als Böse).</td>
+                    <td class="col-example">„Ich denke, ich bin dein Red Herring!“</td>
+                    <td class="col-details">Wird vom ST beim Setup festgelegt. Muss gut sein.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Remindertoken</td>
+                    <td class="col-explanation">Kleine Marken im Grimoire zur Unterstützung des ST.</td>
+                    <td class="col-example">„Der ST setzt den Enkelkind-Token.“</td>
+                    <td class="col-details">Hilft, komplexe Mechaniken im Blick zu behalten.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Role Swap</td>
+                    <td class="col-explanation">Vereinbarter Rollentausch zwischen zwei Spielern zum Bluffen.</td>
+                    <td class="col-example">„Möchtest du einen Role Swap machen?“</td>
+                    <td class="col-details">Verwirrt das böse Team und schützt wichtige Informationen.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Setup</td>
+                    <td class="col-explanation">Vom ST geplante Ausgangssituation (Rollenwahl, Pings).</td>
+                    <td class="col-example">„Das Setup war hart für das gute Team.“</td>
+                    <td class="col-details">Hier entscheidet der ST über die Balance der Runde.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Sink / versenken</td>
+                    <td class="col-explanation">Entscheidung, einen Kill auf eine bereits tote Person oder geschützte Person zu lenken.</td>
+                    <td class="col-example">„Der Demon hat den Kill gesinkt.“</td>
+                    <td class="col-details">Taktisches Mittel, um andere Demon-Typen oder Rollen vorzutäuschen.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Sober</td>
+                    <td class="col-explanation">„Gesund“ – also weder drunk noch poisoned.</td>
+                    <td class="col-example">„Wenn ich sober bin, muss mein Nachbar böse sein.“</td>
+                    <td class="col-details">Nur in diesem Zustand sind Informationen 100% zuverlässig (außer Red Herring).</td>
+                </tr>
+                <tr>
+                    <td class="col-term">snake-charmen</td>
+                    <td class="col-explanation">Als Snake Charmer den Demon wählen und Rollen tauschen.</td>
+                    <td class="col-example">„Ich wurde gesnakecharmed, ich war euer Demon!“</td>
+                    <td class="col-details">Führt zu einem Alignment-Wechsel. Der neue Demon erfährt oft das Team des alten.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Starpass</td>
+                    <td class="col-explanation">Der Imp tötet sich selbst, um die Demon-Rolle an ein Minion zu geben.</td>
+                    <td class="col-example">„Klaus' Tod könnte ein Starpass gewesen sein.“</td>
+                    <td class="col-details">Starke Rettungsaktion für das böse Team.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Tie / Ausgleich</td>
+                    <td class="col-explanation">Stimmenausgleich während der Nominierungsphase.</td>
+                    <td class="col-example">„Maren, senk die Hand, sonst gibt es einen Tie!“</td>
+                    <td class="col-details">Verhindert eine Exekution, wenn keine neue Mehrheit gefunden wird.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Token</td>
+                    <td class="col-explanation">Der physische oder digitale Chip mit der Rolle.</td>
+                    <td class="col-example">„Ich habe den Empath Token gezogen.“</td>
+                    <td class="col-details">Repräsentiert die Identität des Spielers im Spiel.</td>
+                </tr>
+                <tr>
+                    <td class="col-term">Top 4</td>
+                    <td class="col-explanation">Bezieht sich auf die obersten vier Rollen im „Trouble Brewing“ Skript.</td>
+                    <td class="col-example">„Ich bin eine Top-4 Rolle"</td>
+		    <td class="col-details">In “Trouble Brewing” sind alle dieser Rollen auch gleichzeitig die “First-Night-Rollen”. In anderen Skripten gibt es 						    manchmal mehr oder weniger dieser Rollen. Daher wird dort die Formulierung “Top 4” in der Regel nicht verwendet."</td>
 
-    <p style="text-align: center; margin-top: 40px; font-style: italic;">
-        Hast du eine Frage zu einem Begriff? Die Community auf Discord hilft dir jederzeit gerne weiter!
-    </p>
+
+        <tr>
+            <td class="col-term">Traveller / Reisender</td>
+            <td class="col-explanation">Ermöglicht den späteren Einstieg oder vorzeitiges Verlassen. Die Rolle ist öffentlich bekannt, die Gesinnung (Team) jedoch nur dem ST und dem Reisenden.</td>
+            <td class="col-example">Silvia steigt verspätet als „Bürokrat“ ein. Alle wissen, wer sie ist, aber nicht, für wen sie arbeitet.</td>
+            <td class="col-details">Reisende haben starke Fähigkeiten. Sie können per „Exil“ (zusätzlich zur normalen Exekution) aus dem Spiel entfernt werden.</td>
+        </tr>
+
+        <tr>
+            <td class="col-term">Turn (ge-turn-ed)</td>
+            <td class="col-explanation">Der Wechsel der Teamzugehörigkeit während einer laufenden Partie.</td>
+            <td class="col-example">„Möglicherweise ist der Goon geturned.“ / „Der Fang Gu hat einen Außenseiter gewählt.“</td>
+            <td class="col-details">Meist wechseln gute Spieler zum bösen Team, was für die Bösen einen erheblichen strategischen Vorteil bedeutet.</td>
+        </tr>
+
+        <tr>
+            <td class="col-term">Vom Block holen</td>
+            <td class="col-explanation">Durch Stimmengleichheit oder mehr Stimmen für eine andere Person verhindern, dass die aktuelle Zielperson hingerichtet wird.</td>
+            <td class="col-example">„Wir haben Tom vom Block geholt, weil er sehr wahrscheinlich gut ist.“</td>
+            <td class="col-details">Es ist ein wichtiges taktisches Mittel, um wertvolle Informationen schützenswerter Spieler im Spiel zu halten.</td>
+        </tr>
+
+        <tr>
+            <td class="col-term">Welt</td>
+            <td class="col-explanation">Theorien oder Szenarien, die erklären, wie die Rollenverteilung und Informationen zusammenpassen könnten.</td>
+            <td class="col-example">„In Welt A ist Flo der Empath, in Welt B ist er ein getarnter Scherge.“</td>
+            <td class="col-details">Weltenbau hilft dabei, Widersprüche in Informationen aufzudecken und das böse Team durch logische Ausschlussverfahren zu finden.</td>
+        </tr>
+    </tbody>
+</table>
+    <div style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #eee;">
+        <p style="font-style: italic; color: #555;">
+            Hast du eine Frage zu einem Begriff oder fehlt dir etwas? <br>
+            Die Community auf Discord ist sehr hilfsbereit und freut sich auf dich!
+        </p>
+        <a href="crashkurs.html" style="display: inline-block; margin-top: 15px; padding: 10px 25px; background-color: var(--primary-purple); color: white; text-decoration: none; border-radius: 25px; font-weight: bold;">Zum Storyteller-Crashkurs</a>
+    </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Clocktower-Academy</p>
-    <a href="#">Impressum</a> | <a href="#">Datenschutz</a> | <a href="#">Cookie-Einstellungen</a>
+    <div class="footer-content">
+        <p>&copy; 2026 Clocktower-Academy</p>
+        <div class="footer-links">
+            <a href="impressum.html">Impressum</a> | 
+            <a href="datenschutz.html">Datenschutz</a> | 
+            <a href="cookie-einstellungen.html">Cookie-Einstellungen</a>
+        </div>
+    </div>
 </footer>
 
 <script>
+/**
+ * Suchfunktion für das Glossar
+ * Filtert die Tabelle basierend auf der Eingabe im Suchfeld
+ */
 function searchGlossary() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("glossarySearch");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("glossaryTable");
-  tr = table.getElementsByTagName("tr");
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("glossarySearch");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("glossaryTable");
+    tr = table.getElementsByTagName("tr");
 
-  for (i = 1; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
+    // Loop durch alle Tabellenzeilen (außer den Header)
+    for (i = 1; i < tr.length; i++) {
+        // Wir suchen primär in der ersten Spalte (Begriff)
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }       
+    }
 }
 </script>
 
