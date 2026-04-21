@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clocktower Academy | Blood on the Clocktower Lernen</title>
+    <title>Clocktower Academy | Blood on the Clocktower Lernen (Aquarell-Edition)</title>
     <style>
         :root {
-            --bg-color: #1a1a1a;
-            --card-bg: #2d2424;
-            --accent-red: #e63946;
-            --text-light: #f1faee;
-            --text-muted: #a8dadc;
-            --gold: #d4af37;
+            /* Neue Farbpalette: Cremefarben und Aquarell-Lila */
+            --bg-page: #fdfcf5; /* Warmes Cremeweiß */
+            --bg-card: #ffffff; /* Reines Weiß für Abhebung */
+            --primary-purple: #7b2cbf; /* Tiefes Aquarell-Lila */
+            --light-purple: #e0aaff; /* Sehr helles Lila für Hintergründe */
+            --text-main: #2a0944; /* Sehr dunkles Lila für Text */
+            --text-muted: #5a3e75; /* Abgetöntes Lila */
+            --border-style: 2px dashed var(--light-purple); /* Weichere Linien */
         }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-light);
+            background-color: var(--bg-page);
+            color: var(--text-main);
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -31,109 +33,156 @@
 
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), 
-                        url('https://www.transparenttextures.com/patterns/dark-matter.png');
-            border-bottom: 3px solid var(--accent-red);
+            padding: 80px 20px;
+            /* Subtiler Aquarell-Hintergrundeffekt (Platzhalter) */
+            background-color: var(--light-purple);
+            background-image: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(224,170,255,0.4) 100%);
+            border-bottom: 5px solid var(--primary-purple);
+            border-radius: 0 0 50px 50px; /* Abgerundeter, weicherer Abschluss */
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.1);
         }
 
         h1 {
             font-family: 'Georgia', serif;
-            font-size: 3rem;
-            color: var(--accent-red);
+            font-size: 3.2rem;
+            color: var(--primary-purple);
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .tagline {
             font-style: italic;
-            color: var(--gold);
-            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            margin-top: 10px;
         }
 
         section {
             margin: 40px 0;
             padding: 30px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            border-left: 5px solid var(--accent-red);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid rgba(123, 44, 191, 0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Aquarell-Akzent an der Seite */
+        section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            background-color: var(--primary-purple);
+            border-radius: 15px 0 0 15px;
         }
 
         h2 {
-            color: var(--accent-red);
+            color: var(--primary-purple);
             font-family: 'Georgia', serif;
-            border-bottom: 1px solid #453232;
+            border-bottom: var(--border-style);
             padding-bottom: 10px;
+            margin-top: 0;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
 
         .feature-card {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #453232;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(123, 44, 191, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(123, 44, 191, 0.1);
         }
 
         .feature-card h3 {
-            color: var(--gold);
+            color: var(--primary-purple);
             margin-top: 0;
+            font-size: 1.4rem;
         }
 
         .step-list {
             list-style: none;
             padding: 0;
+            counter-reset: step-counter;
         }
 
         .step-list li {
             counter-increment: step-counter;
-            margin-bottom: 15px;
-            padding-left: 50px;
+            margin-bottom: 20px;
+            padding-left: 60px;
             position: relative;
+            font-size: 1.1rem;
         }
 
         .step-list li::before {
             content: counter(step-counter);
             position: absolute;
             left: 0;
-            top: 0;
-            background: var(--accent-red);
-            width: 30px;
-            height: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--light-purple);
+            color: var(--primary-purple);
+            width: 40px;
+            height: 40px;
             text-align: center;
             border-radius: 50%;
             font-weight: bold;
-            line-height: 30px;
+            font-size: 1.2rem;
+            line-height: 40px;
+            border: 2px solid var(--primary-purple);
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-top: 30px;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--accent-red);
+            background-color: var(--primary-purple);
             color: white;
-            padding: 15px 30px;
+            padding: 18px 35px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 4px;
-            margin-top: 20px;
-            transition: 0.3s;
+            border-radius: 50px; /* Weicher, runder Button */
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(123, 44, 191, 0.3);
         }
 
         .btn:hover {
-            background-color: #ff4d5a;
+            background-color: #9d4edd;
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(123, 44, 191, 0.4);
         }
 
         footer {
             text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            color: #777;
+            padding: 50px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            border-top: var(--border-style);
+            margin-top: 30px;
+        }
+
+        strong {
+            color: var(--primary-purple);
         }
     </style>
 </head>
@@ -141,52 +190,54 @@
 
 <header>
     <h1>Clocktower Academy</h1>
-    <p class="tagline">Dein entspannter Einstieg in die Welt von Blood on the Clocktower</p>
+    <p class="tagline">Ein sanfter Einstieg in das Chaos von Blood on the Clocktower</p>
 </header>
 
 <div class="container">
     <section>
-        <h2>Willkommen, Reisender</h2>
-        <p>Die Clocktower-Academy ist ein Ort, an dem Neulinge in einer einladenden Umgebung das Spiel in ihrem eigenen Tempo erlernen können. Entdecke Strategien und Feinheiten, ohne dich überwältigt zu fühlen.</p>
+        <h2>Willkommen, Neuling</h2>
+        <p>Die Clocktower-Academy ist ein Ort, an dem Neulinge in einer einladenden Umgebung das Spiel in ihrem eigenen Tempo erlernen können. Entdecke Strategien und Feinheiten, ohne dich überwältigt zu fühlen – umgeben von Gleichgesinnten und erfahrenen Spielern.</p>
     </section>
 
     <section>
-        <h2>Was wir bieten</h2>
+        <h2>Unser Angebot</h2>
         <div class="grid">
             <div class="feature-card">
                 <h3>Anfängerrunden</h3>
-                <p>Speziell für Neulinge konzipierte Runden mit Fokus auf "Trouble Brewing".</p>
+                <p>Speziell für Einsteiger konzipierte Runden, meist mit dem Skript <strong>Trouble Brewing</strong>.</p>
             </div>
             <div class="feature-card">
                 <h3>Storyteller-Schule</h3>
-                <p>Lerne, wie du selbst eine Gruppe sicher durch die Nacht führst.</p>
+                <p>Lerne die Kunst der Spielleitung von unseren erfahrenen Storytellern.</p>
             </div>
             <div class="feature-card">
-                <h3>Deutsche Ressourcen</h3>
-                <p>Zugang zu Glossaren, Charakterblättern und Erklärvideos.</p>
+                <h3>Lern-Ressourcen</h3>
+                <p>Zugang zu deutschen Glossaren, Charakterübersichten und Hilfestellungen.</p>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>So bist du dabei</h2>
+        <h2>Der Weg in die Academy</h2>
         <ul class="step-list">
-            <li><strong>Discord beitreten:</strong> Werde Teil unserer wachsenden Community.</li>
-            <li><strong>Wochenplan prüfen:</strong> Schau nach, wann die nächsten Runden stattfinden.</li>
-            <li><strong>Anmelden:</strong> Bestätige deine Teilnahme einfach per Klick.</li>
-            <li><strong>Spielen:</strong> Komm ca. 15 Minuten vor Start in den Voice-Chat.</li>
+            <li><strong>Discord beitreten:</strong> Klicke auf den Button unten, um unserer Community beizutreten.</li>
+            <li><strong>Wochenplan prüfen:</strong> Im Kanal #wochenplan findest du alle anstehenden Termine.</li>
+            <li><strong>Anmelden:</strong> Reagiere auf die Nachricht des Termins, an dem du teilnehmen möchtest.</li>
+            <li><strong>Spielen:</strong> Sei einfach 15 Minuten vor Start im Voice-Chat bereit.</li>
         </ul>
-        <center><a href="#" class="btn">Jetzt dem Discord beitreten</a></center>
+        <div class="cta-container">
+            <a href="#" class="btn">Jetzt dem Discord beitreten</a>
+        </div>
     </section>
 
     <section>
         <h2>Wichtige Infos</h2>
-        <p>Unser Angebot ist <strong>vollständig kostenlos</strong>. Die wichtigste Regel: Wenn du eine Frage hast, stell sie! Wir sind eine Gemeinschaft, die sich gegenseitig unterstützt.</p>
+        <p>Unser Angebot ist <strong>vollständig kostenlos</strong>. Die wichtigste Regel in der Academy lautet: Wenn irgendetwas unklar ist, zögere nicht, deine Frage zu stellen! Wir sind da, um gemeinsam zu lernen.</p>
     </section>
 </div>
 
 <footer>
-    &copy; 2026 Clocktower Academy | Nicht offiziell mit The Pandemonium Institute verbunden.
+    &copy; 2026 Clocktower Academy | Ein Community-Projekt für Blood on the Clocktower.
 </footer>
 
 </body>
