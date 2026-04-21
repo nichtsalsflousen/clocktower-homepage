@@ -185,8 +185,40 @@
 </section>
 
 <footer>
-    &copy; 2026 Clocktower-Academy | Erstellt für die Blood on the Clocktower Community.
+    <p style="text-align: center; font-size: 14px;">&copy; 2026 Clocktower-Academy</p>
+    <a href="impressum.html">Impressum</a> | 
+    <a href="datenschutz.html">Datenschutz</a> | 
+    <a href="cookies.html">Cookie-Einstellungen</a>
 </footer>
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; padding: 20px; text-align: center; z-index: 9999; font-family: 'Open Sans', sans-serif;">
+    <p style="margin-bottom: 15px; font-size: 16px;">
+        Wir verwenden Cookies, um YouTube-Videos zu ermöglichen. Mit dem Klick auf "Akzeptieren" stimmst du der Nutzung zu. 
+        Details findest du in unserer <a href="datenschutz.html" style="color: #675791; text-decoration: underline;">Datenschutzerklärung</a>.
+    </p>
+    <button onclick="acceptCookies()" style="background: #675791; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-right: 10px;">Akzeptieren</button>
+    <button onclick="dismissCookies()" style="background: #444; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer;">Ablehnen</button>
+</div>
 
+<script>
+    // Funktion: Prüfen, ob schon zugestimmt wurde
+    window.onload = function() {
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+    };
+
+    // Funktion: Zustimmung speichern
+    function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        document.getElementById('cookie-banner').style.display = 'none';
+        location.reload(); // Seite neu laden, um z.B. YouTube zu aktivieren
+    }
+
+    // Funktion: Ablehnen
+    function dismissCookies() {
+        localStorage.setItem('cookieConsent', 'declined');
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+</script>
 </body>
 </html>
