@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Über uns | Clocktower-Academy</title>
+    <title>Home | Deutsche Blood on the Clocktower Community</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     
@@ -52,95 +54,86 @@
             color: var(--primary-purple);
         }
 
-        section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        .hero {
+            padding: 80px 20px;
             text-align: center;
+            background-color: var(--bg-white);
         }
 
-        h1 {
+        .hero h1 {
             font-family: var(--headline-font);
+            color: var(--primary-purple);
             font-size: 64px;
-            color: var(--primary-purple);
-            margin-bottom: 40px;
+            margin: 10px 0;
+            line-height: 1.1;
         }
 
-        .about-image {
-            max-width: 500px;
+        .hero img {
+            max-width: 300px;
             width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 40px;
+            margin: 30px 0;
         }
 
-        .intro-text {
-            font-size: 22px;
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto 40px auto;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            text-align: left;
-            margin-top: 40px;
-        }
-
-        .benefit-item {
-            background: #f9f9f9;
-            padding: 20px;
-            border-left: 5px solid var(--primary-purple);
-            border-radius: 5px;
-        }
-
-        .benefit-item strong {
-            color: var(--primary-purple);
-            display: block;
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .linktree-section {
-            margin-top: 50px;
-            padding: 40px;
+        .btn-purple {
             background-color: var(--primary-purple);
-            color: white;
-            border-radius: 10px;
-        }
-
-        .btn-linktree {
-            background-color: white;
-            color: var(--primary-purple) !important;
+            color: white !important;
             padding: 15px 30px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
             margin-top: 20px;
-            transition: transform 0.2s;
+            transition: opacity 0.3s;
         }
 
-        .btn-linktree:hover {
-            transform: scale(1.05);
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center; /* Alles in Sektionen standardmäßig zentrieren */
+        }
+
+        h3 {
+            font-family: var(--headline-font);
+            color: var(--primary-purple);
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        /* Zentrierter "Wir bieten" Bereich */
+        .offers-container {
+            display: inline-block; /* Sorgt dafür, dass die Box nur so breit wie nötig ist */
+            text-align: left;      /* Text innerhalb der Box wieder linksbündig für die Liste */
+            background-color: rgba(103, 87, 145, 0.05);
+            border-left: 5px solid var(--primary-purple);
+            padding: 30px 50px;
+            border-radius: 5px;
+            margin: 20px auto;
+        }
+
+        ul {
+            font-size: 22px;
+            list-style-type: disc;
+            padding-left: 25px;
+            margin: 0;
         }
 
         footer {
-            background-color: var(--bg-black);
-            color: white;
+            background-color: #f4f4f4;
             text-align: center;
             padding: 40px 20px;
-            font-size: 14px;
             margin-top: 60px;
+            font-size: 14px;
         }
 
-        footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
-
         @media (max-width: 800px) {
-            h1 { font-size: 44px; }
-            .intro-text { font-size: 18px; }
+            .hero h1 { font-size: 44px; }
+            p, li { font-size: 20px; }
+            .offers-container { padding: 20px; }
         }
     </style>
 </head>
@@ -148,61 +141,51 @@
 
 <header>
     <nav class="nav-container">
-        <a href="index.html" style="font-weight: bold; color: var(--primary-purple);">Clocktower-Academy</a>
+        <a href="index.html" style="font-weight: bold; color: var(--primary-purple);">Deutsche Blood on the Clocktower Community</a>
         
         <a href="index.html">Startseite</a>
         <a href="crashkurs.html">Crashkurs</a>
-        <a href="ueber-uns.html">Über uns</a>
+        <a href="ueber-uns.html">Clocktower-Academy</a>
         <a href="glossar.html">Glossar</a>
     </nav>
 </header>
 
+<div class="hero">
+    <h1>Willkommen zur</h1>
+    <h1>Clocktower-Academy</h1>
+    <img src="https://storage.e.jimdo.com/cdn-cgi/image/quality=85,fit=scale-down,format=auto,width=480/image/480716957/daaad8d8-5015-4dc2-a23c-658a58d90869.png" alt="Logo">
+    <br>
+    <a href="https://discord.gg/FcTZuaAUAU" class="btn-purple">Direkt loslegen!</a>
+</div>
+
 <section>
-    <h1>Über uns</h1>
-    
-    <img src="https://storage.e.jimdo.com/cdn-cgi/image/quality=85,fit=scale-down,format=auto,trim=0;0;0;0,width=1000/image/480725976/a003bff3-5f5b-45b3-9c40-979afe6a3200.png" alt="Clocktower Community" class="about-image">
+    <p><strong>Warum eine Clocktower-Academy?</strong></p>
+    <p>Wir sind leidenschaftliche Fans von <em>Blood on the Clocktower</em> und wissen, wie herausfordernd der Einstieg sein kann. Deshalb bieten wir ein speziell auf Neulinge zugeschnittenes Lehrangebot an. Hier können Neulinge in einer einladenden und unterstützenden Umgebung das Spiel in ihrem eigenen Tempo erlernen.</p>
+</section>
 
-    <div class="intro-text">
-        Willkommen in der größten deutschsprachigen Community für <strong>Blood on the Clocktower</strong>! Unser Ziel ist es, alle Fans dieses packenden Social-Deduction-Spiels zu vereinen und eine lebendige Plattform für Austausch, Spiel und Information zu bieten.
+<section style="text-align: center;">
+    <div class="offers-container">
+        <p><strong>Wir bieten:</strong></p>
+        <ul>
+            <li>Anfängerrunden zu verschiedenen Scripten</li>
+            <li>Lernsektionen zu spezifischen Themen und Mechaniken</li>
+            <li>Besondere Rücksicht auf neue Spieler</li>
+            <li>Geleitet von erfahrenen Storytellern</li>
+            <li>Und das Beste: Alles ist <strong>kostenlos!</strong></li>
+        </ul>
     </div>
+</section>
 
-    <div class="benefits-grid">
-        <div class="benefit-item">
-            <strong>Onlinepartien</strong>
-            Spiele spannende Runden mit anderen Fans.
-        </div>
-        <div class="benefit-item">
-            <strong>Regionale Gruppensuche</strong>
-            Finde Mitspieler in deiner Nähe.
-        </div>
-        <div class="benefit-item">
-            <strong>Neuigkeiten zum Spiel</strong>
-            Bleib stets über Updates und Events informiert.
-        </div>
-        <div class="benefit-item">
-            <strong>Clocktower Academy</strong>
-            Lerne Strategien und verbessere dein Spiel.
-        </div>
-        <div class="benefit-item">
-            <strong>Diskussionen & Regelfragen</strong>
-            Tausche dich aus und kläre Unklarheiten.
-        </div>
-        <div class="benefit-item">
-            <strong>Scriptsammlung</strong>
-            Entdecke kreative Fan-Scripts und teile deine eigenen!
-        </div>
-    </div>
-
-    <div class="linktree-section">
-        <h3>Werde Teil der Community</h3>
-        <p style="color: white; text-align: center;">Folge uns auf Social Media und verpasse keine Termine mehr.</p>
-        <a href="https://linktr.ee/debotcom" target="_blank" class="btn-linktree">Klicke hier für unseren Linktree!</a>
+<section>
+    <h3><strong>Wie funktioniert Discord?</strong></h3>
+    <p>Discord ist eine kostenlose Plattform, die Text- und Sprachchats ermöglicht. So kannst du dich ganz einfach mit anderen Spielern vernetzen und Spiele in Echtzeit erleben.</p>
+    <div style="text-align: center;">
+        <a href="https://discord.gg/FcTZuaAUAU" class="btn-purple">Einladungslink zum Discordserver</a>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Clocktower-Academy</p>
-    <a href="#">Impressum</a> | <a href="#">Datenschutz</a> | <a href="#">Cookie-Einstellungen</a>
+    &copy; 2026 Clocktower-Academy | Erstellt für die Blood on the Clocktower Community.
 </footer>
 
 </body>
