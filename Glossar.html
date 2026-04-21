@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glossar | Clocktower-Academy</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-purple: #675791;
+            --bg-white: #FFFFFF;
+            --bg-black: #000000;
+            --headline-font: 'Abril Fatface', serif;
+            --copy-font: 'Open Sans', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--copy-font);
+            background-color: var(--bg-white);
+            color: #333;
+        }
+
+        header {
+            background-color: var(--bg-black);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            font-family: var(--headline-font);
+            font-size: 64px;
+            color: var(--primary-purple);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #glossarySearch {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid var(--primary-purple);
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .glossary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .glossary-table th {
+            background-color: var(--primary-purple);
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        .glossary-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .glossary-table tr:hover {
+            background-color: #f1f0f5;
+        }
+
+        .term {
+            font-weight: bold;
+            color: var(--primary-purple);
+            width: 25%;
+        }
+
+        .explanation {
+            line-height: 1.6;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #eee;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: var(--bg-black);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 800px) {
+            h1 { font-size: 44px; }
+            .term { width: 35%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="nav-container">
+        <a href="#">Startseite</a>
+        <a href="#">Crashkurs</a>
+        <a href="#">Über uns</a>
+        <a href="#">Glossar</a>
+    </nav>
+</header>
+
+<section>
+    <div style="text-align: center;">
+        <span class="status-badge">🏗️ In Arbeit - Wird laufend erweitert</span>
+    </div>
+    <h1>Glossar</h1>
+    <p class="intro-text">
+        Hier findest du alle gängigen Begriffe, die während einer Runde <strong>Blood on the Clocktower</strong> fallen können. 
+        Klar erklärt mit Beispielen für einen besseren Spieleinstieg.
+    </p>
+
+    <div class="search-container">
+        <input type="text" id="glossarySearch" onkeyup="searchGlossary()" placeholder="Nach Begriffen suchen...">
+    </div>
+
+    <table class="glossary-table" id="glossaryTable">
+        <thead>
+            <tr>
+                <th>Begriff</th>
+                <th>Erläuterung & Beispiel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="term">Storyteller</td>
+                <td class="explanation">Der Spielleiter. Er moderiert das Spiel, verteilt die Rollen und trifft Entscheidungen bei unklaren Regelsituationen.</td>
+            </tr>
+            <tr>
+                <td class="term">Grimoire</td>
+                <td class="explanation">Das "Buch" des Storytellers, in dem alle Rollen, Zustände und Spielverläufe festgehalten werden. Für Spieler streng geheim!</td>
+            </tr>
+            <tr>
+                <td class="term">Nomination</td>
+                <td class="explanation">Der formale Prozess am Tag, bei dem ein Spieler vorgeschlagen wird, um hingerichtet zu werden.</td>
+            </tr>
+            <tr>
+                <td class="term">Drunk / Vergiftet</td>
+                <td class="explanation">Ein Zustand, in dem die Fähigkeit eines Spielers nicht funktioniert, der Storyteller ihm aber (falsche) Informationen geben kann.</td>
+            </tr>
+            <tr>
+                <td class="term">Top 4 / Top 3</td>
+                <td class="explanation">Bezieht sich auf die Anzahl der verbleibenden lebenden Spieler – oft die entscheidende Phase des Spiels.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="text-align: center; margin-top: 40px; font-style: italic;">
+        Hast du eine Frage zu einem Begriff? Die Community auf Discord hilft dir jederzeit gerne weiter!
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Clocktower-Academy</p>
+    <a href="#">Impressum</a> | <a href="#">Datenschutz</a> | <a href="#">Cookie-Einstellungen</a>
+</footer>
+
+<script>
+function searchGlossary() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("glossarySearch");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("glossaryTable");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,34 +1,262 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Crashkurs</title>
-<link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Storyteller:innen-Crashkurs | Clocktower-Academy</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-purple: #675791;
+            --bg-white: #FFFFFF;
+            --bg-black: #000000;
+            --headline-font: 'Abril Fatface', serif;
+            --copy-font: 'Open Sans', sans-serif;
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--copy-font);
+            background-color: var(--bg-white);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-black);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Hero / Header Bild */
+        .hero-image-container {
+            width: 100%;
+            background-color: var(--bg-white);
+            text-align: center;
+        }
+
+        .hero-image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-purple {
+            background-color: var(--primary-purple);
+            color: white;
+            max-width: 100%; /* Full width background */
+        }
+
+        .section-purple .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1, h3 {
+            font-family: var(--headline-font);
+            margin-bottom: 30px;
+        }
+
+        h1 { font-size: 64px; color: var(--primary-purple); }
+        .section-purple h3 { font-size: 40px; color: white; }
+        h3 { font-size: 40px; color: var(--primary-purple); }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-align: left; /* Textfluss für bessere Lesbarkeit links */
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .centered-p {
+            text-align: center;
+        }
+
+        /* Listen-Design */
+        .list-container {
+            display: inline-block;
+            text-align: left;
+            margin: 20px auto;
+            font-size: 22px;
+            max-width: 850px;
+        }
+
+        ul, ol {
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary-purple) !important;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn-purple {
+            background-color: var(--primary-purple);
+            color: white !important;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .video-placeholder {
+            background: #222;
+            color: #eee;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 700px;
+        }
+
+        footer {
+            background-color: var(--bg-black);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 800px) {
+            h1 { font-size: 40px; }
+            h3 { font-size: 30px; }
+            p, li { font-size: 18px; }
+        }
+    </style>
+</head>
 <body>
 
-<nav>
-    <a href="index.html">Home</a>
-</nav>
+<header>
+    <nav class="nav-container">
+        <a href="#">Startseite</a>
+        <a href="#">Crashkurs</a>
+        <a href="#">Über uns</a>
+        <a href="#">Glossar</a>
+    </nav>
+</header>
 
-<div class="section hero">
-    <h1>Storyteller:innen Crashkurs</h1>
-    <p>Lerne Spiele zu leiten wie ein Profi.</p>
+<div class="hero-image-container">
+    <img src="https://storage.e.jimdo.com/cdn-cgi/image/quality=85,fit=scale-down,format=auto,trim=0;0;0;0,width=1440/image/481597069/26a53031-73dc-4730-8611-c99de60a6224.png" alt="Storyteller Crashkurs Banner">
 </div>
 
-<div class="section">
-    <h2>Was du lernst</h2>
-    <p>
-        • Spielleitung<br>
-        • Spannung aufbauen<br>
-        • Spieler führen<br>
-    </p>
+<section>
+    <p class="centered-p">Willkommen zum <em>Storyteller:innen Crashkurs</em> für <em>Blood on the Clocktower</em>!</p>
+    <p>Dieser Kurs richtet sich an alle, die in die Rolle der/des Storytellers schlüpfen und ein spannendes und fesselndes Spiel leiten möchten. Du schaffst die Atmosphäre, moderierst das Geschehen und sorgst dafür, dass alle eine großartige Zeit haben.</p>
+    
+    <div class="list-container">
+        <p><strong>In diesem Crashkurs lernst du:</strong></p>
+        <ul>
+            <li>Die Grundlagen der Spielleitung</li>
+            <li>Tipps und Tricks für faire Entscheidungen</li>
+            <li>Reaktion auf unerwartete Situationen</li>
+            <li>Techniken für eine mitreißende Stimmung</li>
+        </ul>
+    </div>
+</section>
+
+<div class="section-purple">
+    <section class="content-wrapper">
+        <h3>Schritt 1: Videorecherche</h3>
+        <p>Bevor du selbst leitest, lohnt es sich, das Spiel in Aktion zu erleben. Wir haben empfehlenswerte Videos für dich zusammengestellt:</p>
+        
+        <div class="list-container">
+            <ul>
+                <li><a href="#" style="color:white; font-weight:bold;">Einführung in Blood on the Clocktower</a></li>
+                <li><a href="#" style="color:white; font-weight:bold;">Storyteller-Guide (Live-Runden)</a></li>
+                <li><a href="#" style="color:white; font-weight:bold;">Beispiele aus echten Spielen (Trouble Brewing)</a></li>
+            </ul>
+        </div>
+    </section>
 </div>
 
-<div class="section dark">
-    <a href="https://linktr.ee/debotcom" class="button">Jetzt teilnehmen</a>
+<section>
+    <h3>Schritt 2: Sammle Spielerfahrung</h3>
+    <p>Die beste Vorbereitung ist das Mitspielen. Auf unserem Discord-Server kannst du direkt von erfahrenen Storytellern lernen.</p>
+    
+    <div class="list-container">
+        <p><strong>So startest du auf Discord:</strong></p>
+        <ol>
+            <li><strong>App laden:</strong> Discord auf dem PC oder Smartphone installieren.</li>
+            <li><strong>Account:</strong> Mit E-Mail registrieren.</li>
+            <li><strong>Beitreten:</strong> Über den Link auf unseren Server kommen.</li>
+            <li><strong>Anmelden:</strong> Im Wochenplan per Klick für Termine eintragen.</li>
+        </ol>
+    </div>
+    <br>
+    <a href="#" class="btn-purple">Zum Discord Server</a>
+</section>
+
+<div class="section-purple">
+    <section class="content-wrapper">
+        <h3>Discord-Videoanleitung</h3>
+        <p class="centered-p">Discord kann am Anfang überwältigend sein. Unser Moderator Ertai hat hier alles Wichtige erklärt:</p>
+        <div class="video-placeholder">
+            [Hier liegt das eingebettete Youtube-Video]
+            <br><br>
+            <a href="#" class="btn-white">Zustimmen & Anzeigen</a>
+        </div>
+    </section>
 </div>
+
+<section>
+    <h3>Selber Storytellen: Der letzte Schritt</h3>
+    <p>Sobald du bereit bist, ist der beste Einstieg die Rolle als <strong>Co-Storyteller:in</strong>. Du begleitest einen Profi und übernimmst nach und nach Aufgaben.</p>
+    <p class="centered-p"><strong>Trau dich – die Community unterstützt dich bei jedem Schritt!</strong></p>
+</section>
+
+<footer>
+    <p style="text-align: center; font-size: 14px;">&copy; 2026 Clocktower-Academy</p>
+    <a href="#">Impressum</a> | <a href="#">Datenschutz</a> | <a href="#">Cookie-Einstellungen</a>
+</footer>
 
 </body>
 </html>

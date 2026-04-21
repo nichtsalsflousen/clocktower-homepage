@@ -1,282 +1,188 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clocktower Academy | Blood on the Clocktower Lernen (Aquarell-Stil)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Clocktower-Academy</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            /* Farbpalette: Cremefarben und Aquarell-Lila */
-            --bg-page: #fdfcf5; /* Warmes Cremeweiß */
-            --bg-card: #ffffff; /* Reines Weiß */
-            --primary-purple: #7b2cbf; /* Tiefes Aquarell-Lila */
-            --mid-purple: #9d4edd; /* Mittleres Lila */
-            --light-purple: #e0aaff; /* Sehr helles Lila */
-            --text-main: #2a0944; /* Sehr dunkles Lila für Text */
-            --text-muted: #5a3e75; /* Abgetöntes Lila */
-            
-            /* Stil-Elemente */
-            --border-style: 2px dashed var(--mid-purple);
-            --shadow-soft: 0 5px 20px rgba(123, 44, 191, 0.05);
-            --shadow-medium: 0 8px 25px rgba(123, 44, 191, 0.1);
+            --primary-purple: #675791;
+            --bg-white: #FFFFFF;
+            --bg-black: #000000;
+            --headline-font: 'Abril Fatface', serif;
+            --copy-font: 'Open Sans', sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
-            line-height: 1.8;
             margin: 0;
             padding: 0;
+            font-family: var(--copy-font);
+            background-color: var(--bg-white);
+            color: #333;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 940px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- HEADER --- */
         header {
+            background-color: var(--bg-black);
+            padding: 20px 0;
             text-align: center;
-            padding: 100px 20px;
-            /* Subtiler Aquarell-Verlauf */
-            background: radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, rgba(224,170,255,0.3) 100%);
-            border-bottom: 6px solid var(--primary-purple);
-            border-radius: 0 0 60px 60px;
-            box-shadow: var(--shadow-soft);
-            position: relative;
         }
 
-        header h1 {
-            font-family: 'Georgia', serif;
-            font-size: 3.5rem;
-            color: var(--primary-purple);
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(123, 44, 191, 0.1);
-        }
-
-        header .tagline {
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 1.4rem;
-            margin-top: 15px;
-        }
-
-        /* --- ALLGEMEINE SEKTIONEN --- */
-        section {
-            margin: 50px 0;
-            padding: 40px;
-            background-color: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid rgba(123, 44, 191, 0.08);
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Aquarell-Akzent-Leiste links */
-        section::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 10px;
-            background: linear-gradient(to bottom, var(--primary-purple), var(--light-purple));
-            border-radius: 20px 0 0 20px;
-        }
-
-        h2 {
-            color: var(--primary-purple);
-            font-family: 'Georgia', serif;
-            font-size: 2.2rem;
-            border-bottom: var(--border-style);
-            padding-bottom: 15px;
-            margin-top: 0;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
+            justify-content: space-around;
             align-items: center;
-            gap: 15px;
-        }
-        
-        h2 span.icon {
-            font-size: 1.2em;
+            flex-wrap: wrap;
         }
 
-        /* --- BILDER --- */
-        .section-image {
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: var(--primary-purple);
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--bg-white);
+        }
+
+        .hero h1 {
+            font-family: var(--headline-font);
+            color: var(--primary-purple);
+            font-size: 64px;
+            margin: 10px 0;
+            line-height: 1.1;
+        }
+
+        .hero img {
+            max-width: 300px;
             width: 100%;
-            max-height: 300px;
-            object-fit: cover; /* Schneidet das Bild passend zu */
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border: 2px solid var(--light-purple);
+            margin: 30px 0;
         }
 
-        /* --- GRID & KARTEN --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .feature-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(123, 44, 191, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-            border-color: var(--mid-purple);
-        }
-
-        .feature-card img.card-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            border-radius: 50%;
-            background-color: var(--light-purple);
-            padding: 10px;
-        }
-
-        .feature-card h3 {
-            color: var(--primary-purple);
-            margin-top: 0;
-            font-size: 1.6rem;
-        }
-
-        /* --- LISTEN --- */
-        .step-list {
-            list-style: none;
-            padding: 0;
-            counter-reset: step-counter;
-        }
-
-        .step-list li {
-            counter-increment: step-counter;
-            margin-bottom: 25px;
-            padding-left: 70px;
-            position: relative;
-            font-size: 1.15rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .step-list li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--primary-purple);
-            color: white;
-            width: 45px;
-            height: 45px;
-            text-align: center;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 1.3rem;
-            line-height: 45px;
-            box-shadow: 0 4px 8px rgba(123, 44, 191, 0.2);
-        }
-
-        /* --- BUTTONS & CTA --- */
-        .cta-container {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: rgba(224, 170, 255, 0.2);
-            border-radius: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary-purple), var(--mid-purple));
-            color: white;
-            padding: 20px 40px;
+        .btn-purple {
+            background-color: var(--primary-purple);
+            color: white !important;
+            padding: 15px 30px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
-            border: none;
-            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            transition: opacity 0.3s;
         }
 
-        .btn:hover {
-            box-shadow: 0 8px 25px rgba(123, 44, 191, 0.5);
-            transform: scale(1.03);
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center; /* Alles in Sektionen standardmäßig zentrieren */
         }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 1rem;
-            color: var(--text-muted);
-            border-top: var(--border-style);
-            margin-top: 50px;
-            background-color: rgba(224, 170, 255, 0.1);
-        }
-
-        strong {
+        h3 {
+            font-family: var(--headline-font);
             color: var(--primary-purple);
+            font-size: 40px;
         }
 
-        /* --- RESPONSIVE OPTIMIERUNG --- */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            section { padding: 25px; }
-            h2 { font-size: 1.8rem; }
-            .step-list li { padding-left: 60px; font-size: 1rem;}
-            .step-list li::before { width: 40px; height: 40px; line-height: 40px;}
+        p {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        /* Zentrierter "Wir bieten" Bereich */
+        .offers-container {
+            display: inline-block; /* Sorgt dafür, dass die Box nur so breit wie nötig ist */
+            text-align: left;      /* Text innerhalb der Box wieder linksbündig für die Liste */
+            background-color: rgba(103, 87, 145, 0.05);
+            border-left: 5px solid var(--primary-purple);
+            padding: 30px 50px;
+            border-radius: 5px;
+            margin: 20px auto;
+        }
+
+        ul {
+            font-size: 22px;
+            list-style-type: disc;
+            padding-left: 25px;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .hero h1 { font-size: 44px; }
+            p, li { font-size: 20px; }
+            .offers-container { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Clocktower Academy</h1>
-    <p class="tagline">Dein sicherer, lila Hafen im kreativen Chaos von Blood on the Clocktower</p>
+    <nav class="nav-container">
+        <a href="#">Startseite</a>
+        <a href="#">Crashkurs</a>
+        <a href="#">Über uns</a>
+        <a href="#">Glossar</a>
+    </nav>
 </header>
 
-<div class="container">
-    <section id="welcome">
-        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Offenes altes Buch im Aquarell-Stil" class="section-image">
-        
-        <h2><span class="icon">🏰</span>Willkommen, Lehrling</h2>
-        <p>Die <strong>Clocktower-Academy</strong> ist ein Ort, an dem Neulinge in einer einladenden und künstlerischen Umgebung das Spiel in ihrem eigenen Tempo erlernen können. Entdecke Strategien und Feinheiten, ohne dich überwältigt zu fühlen – umgeben von Gleichgesinnten und erfahrenen Spielern.</p>
-    </section>
+<div class="hero">
+    <h1>Willkommen zur</h1>
+    <h1>Clocktower-Academy</h1>
+    <img src="https://storage.e.jimdo.com/cdn-cgi/image/quality=85,fit=scale-down,format=auto,width=480/image/480716957/daaad8d8-5015-4dc2-a23c-658a58d90869.png" alt="Logo">
+    <br>
+    <a href="https://discord.gg/FcTZuaAUAU" class="btn-purple">Direkt loslegen!</a>
+</div>
 
-    <section id="offers">
-        <h2><span class="icon">🎓</span>Unser Lehrplan</h2>
-        <div class="grid">
-            <div class="feature-card">
-                <img src="https://img.icons8.com/watercolor/100/castle.png" alt="castle" class="card-icon"/>
-                <h3>Anfängerrunden</h3>
-                <p>Speziell konzipierte Runden, ideal für den Einstieg mit <strong>Trouble Brewing</strong>.</p>
-            </div>
-            <div class="feature-card">
-                <img src="https://img.icons8.com/watercolor/100/quill-with-ink.png" alt="quill-with-ink" class="card-icon"/>
-                <h3>Storyteller-Schule</h3>
-                <p>Lerne die Kunst der Spielleitung und wie du eine Gruppe sicher führst.</p>
-            </div>
-            <div class="feature-card">
-                <img src="https://img.icons8.com/watercolor/100/book.png" alt="book" class="card-icon"/>
-                <h3>Lern-Ressourcen</h3>
-                <p>Zugang zu deutschen Glossaren, Charakterübersichten und Tutorials.</p>
-            </div>
-        </div>
-    </section>
+<section>
+    <p><strong>Warum eine Clocktower-Academy?</strong></p>
+    <p>Wir sind leidenschaftliche Fans von <em>Blood on the Clocktower</em> und wissen, wie herausfordernd der Einstieg sein kann. Deshalb bieten wir ein speziell auf Neulinge zugeschnittenes Lehrangebot an. Hier können Neulinge in einer einladenden und unterstützenden Umgebung das Spiel in ihrem eigenen Tempo erlernen.</p>
+</section>
 
-    <section id="join">
-        <h2><span class="icon">💜
+<section style="text-align: center;">
+    <div class="offers-container">
+        <p><strong>Wir bieten:</strong></p>
+        <ul>
+            <li>Anfängerrunden zu verschiedenen Scripten</li>
+            <li>Lernsektionen zu spezifischen Themen und Mechaniken</li>
+            <li>Besondere Rücksicht auf neue Spieler</li>
+            <li>Geleitet von erfahrenen Storytellern</li>
+            <li>Und das Beste: Alles ist <strong>kostenlos!</strong></li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h3><strong>Wie funktioniert Discord?</strong></h3>
+    <p>Discord ist eine kostenlose Plattform, die Text- und Sprachchats ermöglicht. So kannst du dich ganz einfach mit anderen Spielern vernetzen und Spiele in Echtzeit erleben.</p>
+    <div style="text-align: center;">
+        <a href="https://discord.gg/FcTZuaAUAU" class="btn-purple">Einladungslink zum Discordserver</a>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Clocktower-Academy | Erstellt für die Blood on the Clocktower Community.
+</footer>
+
+</body>
+</html>
